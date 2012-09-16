@@ -30,8 +30,8 @@ class BlogpostAdmin(admin.ModelAdmin):
 				return db_field.formfield(widget=TinyMCE(attrs={'cols': 100, 'rows': 100},mce_attrs={'external_link_list_url': reverse('tinymce.views.flatpages_link_list')},
 			))
 			return super(BlogpostAdmin, self).formfield_for_dbfield(db_field, **kwargs)
-			
-			
+
+
 
 
 
