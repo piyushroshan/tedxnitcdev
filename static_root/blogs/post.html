@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}Blog Post |{% endblock %}
+
+{% block m_blog %} class="active" {% endblock %}
+{% block head %}<link rel="stylesheet" href="{{STATIC_URL}}css/blog.css" />{% endblock %}
+ 
+
+{% block content %}
+<div id="content" >
+<div class="wrapper">
+			<!-- Posts  -->
+			<ul>
+				<article>
+					<section>
+					<div id="post_content">
+							<header>
+								<h3>{{ post.title }}</h3>
+							</header>
+							<div id="post_bosy"> {% autoescape off %}  <div >{{ post.body|linebreaks }}</div> {% endautoescape %} </div>
+							<footer>
+								<div id="post_footer">
+									Posted By &nbsp;  <a href="{% url blogs.views.list_user post.user_id  %}">{{post.user_id.get_full_name}}&nbsp; </a> on &nbsp;{{post.created}}.
+								</div>
+							</footer>
+						</div>
+					</section>
+				</article>	
+			
+
+		<!-- Comments  -->
+		<div>
+			{% if comments %}
+				<div id="comment_header">Comments:</div>
+			{% endif %}
+
+			{% for comment in comments %}
+				<div id="comment">
+					<div id="comment_body"> {{ comment.body|linebreaks }} </div>
+					<div id="post_footer">Posted by &nbsp; <a href="{% url blogs.views.list_user post.user_id  %}"> {{post.user_id.get_full_name}} </a> &nbsp; on &nbsp; {{comment.created}} </div>
+					
+				</div>
+			{% endfor %}
+			<div id="addc"> Add a comment </div>
+				<!-- Comment form  -->
+				<form action="{% url blogs.views.post post.id %}" method="POST">	{% csrf_token %}
+					<div id="cform">
+						<div id="cname_wrapper" >
+							<label for="id_name"> Name :	</label>
+							<div id="cname"> {{form.name}} </div>
+							{% if form.name.errors %}
+       									 <div class="errors">{{ form.name.errors.as_text }}</div>
+    							  {% endif %}
+						</div>
+						<div id="cemail_wrapper">
+							<label for="id_email">Email : </label>
+							<div id="cemail" > {{form.email}} </div>
+							{% if form.email.errors %}
+       									 <div class="errors">{{ form.email.errors.as_text }}</div>
+    							  {% endif %}
+						</div>
+						<div id="cbody_wrapper">
+							<label for="id_body">Your Message : </label>
+							<div id="cbody"> {{form.body}} </div>
+							{% if form.body %}
+       									 <div class="errors">{{ form.body.errors.as_text }}</div>
+    							  {% endif %}
+						</div>
+						{% if not user.is_authenticated %}
+						<div class="captcha" id="captcha">
+								{{ form.recaptcha }}
+								{% if form.recaptcha.errors %}<div class="errors">{{ form.recaptcha.errors.as_text }}</div>{% endif %}<br />
+								</div>
+						{% endif %}
+					<div class="submit">
+							<button class="submit-button" type="submit" value="submit">
+                                    <span>Submit</span>
+                                </button>
+					</div>
+					</div>
+				</form>
+			</div>
+	</ul>
+	</div>
+</div>
+{% endblock %}

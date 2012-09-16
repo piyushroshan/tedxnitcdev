@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Contact us | {% endblock %}
+{% block head %}
+
+<link rel="stylesheet"  href="{{STATIC_URL}}css/contactform.css" />
+{% endblock %}
+
+{% block m_contact %} class="active" {% endblock %}
+
+{% block content %}
+
+<div id="content">
+<div class="wrapper">
+
+<div class="contactform">
+
+
+    <h1 class="title">Contact Us</h1>
+    <fieldset ><legend><span ></span></legend>
+    {% if errors %}
+        <ul>
+            {% for error in errors %}
+            <li class="errors">{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+
+    <form action="/contactus/submit/" method="post">{% csrf_token %}
+    <table>
+	<tr><td class="label">Your Name:<sup>*</sup> </td><td><input type="text" name="name" value="{{ name }}"></td></tr>
+	<tr><td class="label">Your E-mail:<sup>*</sup></td><td> <input type="text" name="email" value="{{ email }}"></td></tr>
+	<tr><td class="label">Phone Number:</td><td> <input type="text" name="phone" value="{{ phone }}"></td></tr>
+        <tr><td class="label">Subject:<sup>*</sup></td><td> <input type="text" name="subject" value="{{ subject }}"></td></tr>
+    </table>
+    <table>
+        <tr><td ><div>Your Message:<sup>*</sup</div>
+        <div><textarea name="message" rows="10" cols="50">{{ message }}</textarea></div></td></tr>
+        {% if not user.is_authenticated %}
+        <tr><td ><div>{{ ques }}<sup>*</sup>
+            <div><input type="text" name="answer" ></div>
+
+            </td></tr>
+        {% endif %}
+         <tr><td>
+        <button class="submit-button" type="submit" value="submit">
+                                    <span>Submit</span>
+                                </button>
+
+        </td></tr>
+        </table>
+    </form>
+
+</fieldset>
+
+</div>
+</div>
+</div>
+{% endblock %}

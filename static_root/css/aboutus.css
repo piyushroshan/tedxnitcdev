@@ -1,0 +1,35 @@
+
+
+
+
+#content h1
+{
+color:  #ff2b06;
+padding-bottom: 15px;
+}
+
+.red
+{
+color: #ff2b06;
+text-decoration: none;
+}
+
+
+.black
+{
+color: #111;
+	}
+	
+	.aboutus
+	
+	{
+		
+height: 600px;
+min-height: 600px;		
+		}
+		
+		.credits
+		{
+	height: 600px;
+padding-left: 100px;
+			}

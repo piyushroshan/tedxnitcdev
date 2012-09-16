@@ -1,0 +1,35 @@
+#space
+{
+
+}
+
+#content .wrapper
+{
+	padding-bottom: 50px;
+	padding-left: 50px;
+	padding-right: 50px;
+	min-height: 100%;
+}
+
+
+#content h2
+{
+	margin-top: 2em;
+}
+
+#box
+{
+display: block;
+min-height: 150px;
+background-color: 000000;
+position: relative;
+margin: 0.5;
+padding:  0.5;
+}
+
+.rteright
+{
+	display:block;
+	/*text-align: right;
+	padding-right: 10px;*/
+}
