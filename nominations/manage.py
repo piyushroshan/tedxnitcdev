@@ -20,7 +20,7 @@ def nominated(request):
 			message_template = get_template('nominations/nomination_email.txt')
 			message_context = Context({ 'form': form })
 			message = message_template.render(message_context)
-			EmailMessage(subject, message, settings.DEFAULT_FROM_EMAIL, settings.DEFAULT_TO_EMAIL)
+			EmailMessage(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.DEFAULT_TO_EMAIL])
 			form.save()
 			return HttpResponseRedirect('/')
 		else:
