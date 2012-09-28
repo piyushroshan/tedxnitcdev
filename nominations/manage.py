@@ -21,8 +21,7 @@ def nominated(request):
 			message_context = Context({ 'form': form })
 			message = message_template.render(message_context)
 			email=EmailMessage(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.DEFAULT_TO_EMAIL])
-			 if not email.send():
-			 	return HttpResponseRedirect('/nominate')
+			email.send()
 			form.save()
 			return HttpResponseRedirect('/')
 		else:
