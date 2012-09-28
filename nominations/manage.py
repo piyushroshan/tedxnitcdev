@@ -6,6 +6,8 @@ from django.template import RequestContext
 from django.forms import ModelForm
 from nominations.models import *
 from nominations.forms import *
+from django.utils.timezone import utc
+from django.contrib.sites.models import Site
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 def nominated(request):

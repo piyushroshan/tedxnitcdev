@@ -8,12 +8,12 @@ TEMPLATE_DEBUG = DEBUG
 ACCOUNT_ACTIVATION_DAYS=7
 EMAIL_USE_TLS =True
 EMAIL_HOST ='smtp.gmail.com'
-EMAIL_PORT = 567
+EMAIL_PORT = 587
 EMAIL_HOST_USER='tedx@roshanpiyush.co.cc'
 EMAIL_HOST_PASSWORD ='nitctedx'
 DEFAULT_FROM_EMAIL ='noreply@tedxnitcalicut.com'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_TO_EMAIL = 'piyushroshan@gmail.com'
 RECAPTCHA_PRIVATE_KEY = '6Let5NUSAAAAADXx-OIJHzZREb2SSrGaLwdG8ynO'
 RECAPTCHA_PUBLIC_KEY = '6Let5NUSAAAAAOW6otujPq7PCR2WjcmXXgG8wc9b'
 
