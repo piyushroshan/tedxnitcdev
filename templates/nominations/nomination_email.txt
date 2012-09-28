@@ -1,34 +1,30 @@
-{% load humanize %}
-<h3>Nominator Information<h3>
-<div>
-<br/>
-Full Name of the Nominator:  {{ form.nominator_name }} 
-<br/>
-Email: {{ form.nominator_email }}
-<br/>
-Phone Number: {{ form.nominator_phone }} 
-<br/>
-</div>
 
-<h3>Nominee Information</h3>
-<div>
+Nominator Information
+
+Full Name of the Nominator:  {{ form.nominator_name }} 
+Email: {{ form.nominator_email }}
+Phone Number: {{ form.nominator_phone }} 
+
+
+Nominee Information
+
+
 Full Name of the Nominee: {{ form.fullname }}  
-</br>
 Nominee's Email: {{ form.email }}
 Nominee's Phone Number:  {{ form.phone }} 
-<b> Tell us briefly about the speaker: </b>
-<br/>Occupation? Honors or Distinctions? Recent Work? 
-</br>
-<p> {{ form.description }} </p>
-<b> What is the presenter's "Idea Worth Spreading"? What is unique about this performer? </b>
-<br/>
-Why should TEDxNITCalicut experience this speaker? 
-<br/>
-<p>{{ form.support }}</p>
 
-<b>Additional Reference:</b>
-<br/>
+Tell us briefly about the speaker: 
+Occupation? Honors or Distinctions? Recent Work? 
+
+ {{ form.description }} 
+
+
+ What is the presenter's "Idea Worth Spreading"? What is unique about this performer? 
+Why should TEDxNITCalicut experience this speaker? 
+
+{{ form.support }}
+
+Additional Reference:
 Please provide links to any articles, videos or web pages about the nominee.
-<br/>
-<p>{{ form.reference1 }}</p>
-</div>
+
+{{ form.reference1 }}
