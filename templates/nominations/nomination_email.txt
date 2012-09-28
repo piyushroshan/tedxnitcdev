@@ -1,30 +1,30 @@
 
 Nominator Information
 
-Full Name of the Nominator:  {{ form.nominator_name }} 
-Email: {{ form.nominator_email }}
-Phone Number: {{ form.nominator_phone }} 
+Full Name of the Nominator:  {{ form.nominator_name.value }} 
+Email: {{ form.nominator_email.value }}
+Phone Number: {{ form.nominator_phone.value }} 
 
 
 Nominee Information
 
 
-Full Name of the Nominee: {{ form.fullname }}  
-Nominee's Email: {{ form.email }}
-Nominee's Phone Number:  {{ form.phone }} 
+Full Name of the Nominee: {{ form.fullname.value }}  
+Nominee's Email: {{ form.email.value }}
+Nominee's Phone Number:  {{ form.phone.value }} 
 
 Tell us briefly about the speaker: 
 Occupation? Honors or Distinctions? Recent Work? 
 
- {{ form.description }} 
+ {{ form.description.value }} 
 
 
  What is the presenter's "Idea Worth Spreading"? What is unique about this performer? 
 Why should TEDxNITCalicut experience this speaker? 
 
-{{ form.support }}
+{{ form.support.value }}
 
 Additional Reference:
 Please provide links to any articles, videos or web pages about the nominee.
 
-{{ form.reference1 }}
+{{ form.reference1.value }}
