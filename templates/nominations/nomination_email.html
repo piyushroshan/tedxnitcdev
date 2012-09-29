@@ -1,27 +1,27 @@
 <h3>Nominator Information </h3>
-<b>Full Name of the Nominator: </b> {{ form.nominator_name }} 
+<b>Full Name of the Nominator: </b> {{ form.nominator_name.value }} 
 <br/>
-<b>Email:</b> {{ form.nominator_email }}
+<b>Email:</b> {{ form.nominator_email.value }}
 <br/>
-<b>Phone Number:</b> {{ form.nominator_phone }} 
+<b>Phone Number:</b> {{ form.nominator_phone.value }} 
 <br/>
 
 <h3>Nominee Information</h3>
-<b>Full Name of the Nominee:</b> {{ form.fullname }}  
+<b>Full Name of the Nominee:</b> {{ form.fullname.value }}  
 <br />
-<b>Nominee's Email:</b> {{ form.email }}
+<b>Nominee's Email:</b> {{ form.email.value }}
 <br/>
-<b>Nominee's Phone Number:</b>  {{ form.phone }} 
+<b>Nominee's Phone Number:</b>  {{ form.phone.value }} 
 <br/>
 <br/>
 <b> Tell us briefly about the speaker: </b>
 <br/>
-<p> {{ form.description }} </p>
+<p> {{ form.description.value }} </p>
 <br/>
 <b> What is the presenter's "Idea Worth Spreading"? What is unique about this performer? </b>
 <br/>
-<p>{{ form.support }}</p>
+<p>{{ form.support.value }}</p>
 <b>Additional Reference:</b>
 <br/>
-<p>{{ form.reference1 }}</p>
+<p>{{ form.reference1.value }}</p>
 <br/>
