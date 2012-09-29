@@ -20,7 +20,7 @@ def nominated(request):
 			message_template = get_template('nominations/nomination_email.html')
 			message_context = Context({ 'form': form })
 			message = message_template.render(message_context)
-			email=EmailMultiAlternatives(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.DEFAULT_TO_EMAIL], headers = {'Reply-To': form.email.value}))
+			email=EmailMultiAlternatives(subject, message, settings.DEFAULT_FROM_EMAIL, to=[settings.DEFAULT_TO_EMAIL], headers = {'Reply-To': form.email.value}))
 			email.attach_alternative(message, "text/html")
 			email.send()
 			form.save()
