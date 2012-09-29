@@ -14,17 +14,15 @@ Nominee's Email: {{ form.email.value }}
 Nominee's Phone Number:  {{ form.phone.value }} 
 
 Tell us briefly about the speaker: 
-Occupation? Honors or Distinctions? Recent Work? 
 
- {{ form.description.value }} 
+{{ form.description.value }} 
 
 
- What is the presenter's "Idea Worth Spreading"? What is unique about this performer? 
-Why should TEDxNITCalicut experience this speaker? 
+What is the presenter's "Idea Worth Spreading"? What is unique about this performer? 
 
 {{ form.support.value }}
 
+
 Additional Reference:
-Please provide links to any articles, videos or web pages about the nominee.
 
 {{ form.reference1.value }}
