@@ -13,7 +13,7 @@ EMAIL_HOST_USER='tedxnitcalicut@gmail.com'
 EMAIL_HOST_PASSWORD ='aryabhatta'
 DEFAULT_FROM_EMAIL ='noreply@tedxnitcalicut.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-DEFAULT_TO_EMAIL = 'piyushroshan@gmail.com'
+DEFAULT_TO_EMAIL = 'tedxnitcalicut@gmail.com'
 RECAPTCHA_PRIVATE_KEY = '6Let5NUSAAAAADXx-OIJHzZREb2SSrGaLwdG8ynO'
 RECAPTCHA_PUBLIC_KEY = '6Let5NUSAAAAAOW6otujPq7PCR2WjcmXXgG8wc9b'
 
