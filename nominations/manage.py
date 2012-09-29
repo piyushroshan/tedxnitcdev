@@ -17,10 +17,11 @@ def nominated(request):
 			from django.core.mail import *
 			current_domain = Site.objects.get_current().domain
 			subject = "New nomination at %s" % current_domain
-			message_template = get_template('nominations/nomination_email.txt')
+			message_template = get_template('nominations/nomination_email.html')
 			message_context = Context({ 'form': form })
 			message = message_template.render(message_context)
-			email=EmailMessage(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.DEFAULT_TO_EMAIL])
+			email=EmailMultiAlternatives(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.DEFAULT_TO_EMAIL], headers = {'Reply-To': form.email.value}))
+			email.attach_alternative(message, "text/html")
 			email.send()
 			form.save()
 			return HttpResponseRedirect('/')
