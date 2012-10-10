@@ -3,7 +3,7 @@ import os
 
 # Django settings for tedxnitcalicut project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 ACCOUNT_ACTIVATION_DAYS=7
 EMAIL_USE_TLS =True
