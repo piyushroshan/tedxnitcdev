@@ -1,10 +1,13 @@
 # Create your views here.
 from django.http import *
+from django.forms import ModelForm
+from django import forms
 from django.shortcuts import render_to_response
 from django.template.loader import get_template
-from django.template import RequestContext
+from django.template import RequestContext, Context
 from contactus.models import contactform
 from django.core.mail import *
+from django.conf import settings
 ques = u"Which is the day after Tuesday?"
 ans = "wednesday"
 def contact_us(request):
@@ -35,29 +38,31 @@ def submit_form(request):
 			errors.append('Enter a message.')
 		if not request.user.is_authenticated() and not request.POST.get('answer')==ans:
 			errors.append('Enter correct answer to the question')
-		if not errors:
-			cform = contactform()
-			cform.name = request.POST['name']
-			cform.email = request.POST['email']
-			cform.phone = request.POST['phone']
-			cform.subject = request.POST['subject']
-			cform.message = request.POST['message']
-			cform.save()
-			EmailMessage(
-				request.POST['subject'],
-				request.POST['message'],
-				request.POST.get('email', 'noreply@example.com'),
-				['piyushroshan@example.com'],
-				)
-			return HttpResponseRedirect('/contactus/thanks/')
-		t = get_template('contactus/contactus.html')
 		if request.user.is_authenticated():
 			name = request.user.get_full_name()
 			email = request.user.email
 		else:
 			name = request.POST['name']
 			email = request.POST['email']
-
+		if not errors:
+			cform = contactform()
+			cform.name = name
+			cform.email = email
+			cform.phone = request.POST['phone']
+			cform.subject = request.POST['subject']
+			cform.message = request.POST['message']
+			subject = "Contact %s : %s" %(request.POST['email'], request.POST['subject'])
+			t = get_template('contactus/contactmail.html')
+			tc = get_template('contactus/contactmail.txt')
+			c = RequestContext(request, {'name': name, 'phone':request.POST['phone'], 'subject':request.POST['subject'], 'message':request.POST['message'], 'email':email, })
+			message = t.render(c)
+			messagec = tc.render(c)
+			email = EmailMultiAlternatives(subject, message, cform.email, to=[settings.DEFAULT_TO_EMAIL], headers = {'Reply-To': cform.email})
+			email.attach_alternative(message, "text/html")
+			email.send()
+			cform.save()
+			return HttpResponseRedirect('/contactus/thanks/')
+		t = get_template('contactus/contactus.html')
 		c = RequestContext (request, {
 				'errors': errors,
 				'name': name,

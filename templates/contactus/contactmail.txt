@@ -1,0 +1,7 @@
+
+Contact Form Submission
+Full Name: {{ name }} 
+Email: {{ email }}
+Phone Number: {{ phone }} 
+Subject: {{ subject }} 
+Message: {{ message }}
