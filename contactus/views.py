@@ -57,7 +57,7 @@ def submit_form(request):
 			c = RequestContext(request, {'name': name, 'phone':request.POST['phone'], 'subject':request.POST['subject'], 'message':request.POST['message'], 'email':email, })
 			message = t.render(c)
 			messagec = tc.render(c)
-			email = EmailMultiAlternatives(subject, message, cform.email, to=[settings.DEFAULT_TO_EMAIL], headers = {'Reply-To': cform.email})
+			email = EmailMultiAlternatives(subject, messagec, cform.email, to=[settings.DEFAULT_TO_EMAIL], headers = {'Reply-To': cform.email})
 			email.attach_alternative(message, "text/html")
 			email.send()
 			cform.save()
