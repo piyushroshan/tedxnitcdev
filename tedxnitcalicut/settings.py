@@ -9,8 +9,8 @@ ACCOUNT_ACTIVATION_DAYS=7
 EMAIL_USE_TLS =True
 EMAIL_HOST ='smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER='tedxnitcalicut@gmail.com'
-EMAIL_HOST_PASSWORD ='aryabhatta'
+EMAIL_HOST_USER='xxxxxxx'
+EMAIL_HOST_PASSWORD ='xxxxx'
 DEFAULT_FROM_EMAIL ='noreply@tedxnitcalicut.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_TO_EMAIL = 'tedxnitcalicut@gmail.com'
@@ -28,9 +28,9 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'tedxnitc13',                      # Or path to database file if using sqlite3.
-        'USER': 'tedxdbuser',                      # Not used with sqlite3.
-        'PASSWORD': 'xdetcal',                  # Not used with sqlite3.
+        'NAME': 'xxxxxxx',                      # Or path to database file if using sqlite3.
+        'USER': 'xxxxxx',                      # Not used with sqlite3.
+        'PASSWORD': 'xxxxx',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
